@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const Count = () => {
   const [count, setCount] = useState(0)
@@ -17,13 +17,15 @@ const Count = () => {
 // 受控表单
 const Form = () => {
   const [value, setValue] = useState('')
+  const domRef = useRef(null) // 获取dom元素
 
   function updateFormInput(e) {
+    console.log(domRef.current)
     setValue(e.target.value)
   }
 
   return (<div>
-    <input value={value} onChange={(e) => updateFormInput(e)}/>
+    <input ref={domRef} value={value} onChange={(e) => updateFormInput(e)}/>
   </div>)
 }
 function App() {
