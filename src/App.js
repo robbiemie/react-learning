@@ -1,5 +1,8 @@
 import classNames from "classnames";
-import { useState, useRef } from "react";
+import { useState, useRef, createContext, useContext } from "react";
+
+// 创建一个 context
+const MsgContext = createContext();
 
 const Count = (props) => {
   const [count, setCount] = useState(0)
@@ -29,17 +32,31 @@ const Form = () => {
 
   return (<div>
     <input ref={domRef} value={value} onChange={(e) => updateFormInput(e)}/>
+    <BCom/>
   </div>)
 }
+
+// 跨层组件通信
+const BCom = (props) => {
+  // 使用 useContext 接收跨层的数据
+  const msg = useContext(MsgContext)
+  return (<div>
+    b component, {msg}
+  </div>)
+}
+
 function App() {
+  const msg = 'this is msg text.'
   return (
     <div className="App">
-      <header className={classNames('sub-name', {'name-active': true})}>
-        <Count name={'count'}>
-          <p>this is children.</p>
-        </Count>
-        <Form/>
-      </header>
+      <MsgContext.Provider value={msg}>
+        <header className={classNames('sub-name', {'name-active': true})}>
+          <Count name={'count'}>
+            <p>this is children.</p>
+          </Count>
+          <Form/>
+        </header>
+      </MsgContext.Provider>
     </div>
   );
 }
