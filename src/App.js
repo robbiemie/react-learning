@@ -87,6 +87,26 @@ const ClearEffect = () => {
   </div>)
 }
 
+const useToggle = (visible = true) => {
+  const [value, setValue] = useState(visible);
+
+  const toggle = () => setValue(!value);
+
+  return {
+    value,
+    toggle
+  }
+}
+
+const CustomHookCom = () => {
+  const { value, toggle } = useToggle(true);
+  return (<div>
+    { value && <div>是否可见</div> }
+    <button onClick={toggle}>切换</button>
+  </div>)
+}
+
+
 function App() {
   const msg = 'this is msg text.'
   const [flag, setFlag] = useState(true);
@@ -103,6 +123,7 @@ function App() {
         <UseEffectCom/>
         {flag && <ClearEffect/>}
         <button onClick={() => setFlag(false)}>卸载</button>
+        <CustomHookCom/>
       </MsgContext.Provider>
     </div>
   );
