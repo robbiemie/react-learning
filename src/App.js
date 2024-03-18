@@ -1,8 +1,9 @@
 import classNames from "classnames";
 import { useState, useRef } from "react";
 
-const Count = () => {
+const Count = (props) => {
   const [count, setCount] = useState(0)
+  console.log('count', props)
   function update() {
     setCount(count + 1);
   }
@@ -32,7 +33,7 @@ function App() {
   return (
     <div className="App">
       <header className={classNames('sub-name', {'name-active': true})}>
-        <Count/>
+        <Count name={'count'}/>
         <Form/>
       </header>
     </div>
