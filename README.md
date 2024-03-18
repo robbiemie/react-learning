@@ -1,4 +1,4 @@
-# useEffect
+## useEffect
 
 ![alt text](image.png)
 
@@ -25,6 +25,31 @@ const UseEffectCom = () => {
   return (<div>
     <p>{value}</p>
     <button onClick={() => setValue(value + 1)}>+</button>
+  </div>)
+}
+```
+
+## 清除副作用
+
+![alt text](image-1.png)
+
+```js
+
+const ClearEffect = () => {
+  const [ count, setCount] = useState(0);
+
+  useEffect(() => {
+    let timer = setInterval(() => {
+      setCount(count + 1);
+      console.log('倒计时启动')
+    }, 1000)
+
+    return () => {
+      clearInterval(timer);
+    }
+  })
+  return (<div>
+    clear
   </div>)
 }
 ```

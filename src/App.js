@@ -69,8 +69,27 @@ const UseEffectCom = () => {
   </div>)
 }
 
+const ClearEffect = () => {
+  const [ count, setCount] = useState(0);
+
+  useEffect(() => {
+    let timer = setInterval(() => {
+      setCount(count + 1);
+      console.log('倒计时启动')
+    }, 1000)
+
+    return () => {
+      clearInterval(timer);
+    }
+  })
+  return (<div>
+    clear
+  </div>)
+}
+
 function App() {
   const msg = 'this is msg text.'
+  const [flag, setFlag] = useState(true);
   return (
     <div className="App">
       {/* Provider 为所有子组件提供数据 */}
@@ -82,6 +101,8 @@ function App() {
           <Form/>
         </header>
         <UseEffectCom/>
+        {flag && <ClearEffect/>}
+        <button onClick={() => setFlag(false)}>卸载</button>
       </MsgContext.Provider>
     </div>
   );
