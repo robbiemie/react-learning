@@ -10,6 +10,8 @@ const Count = (props) => {
   return (
     <>
       <p>{count}</p>
+      {/* children 用法 */}
+      {props.children}
       <button onClick={update}>点击</button>
     </>
   )
@@ -33,7 +35,9 @@ function App() {
   return (
     <div className="App">
       <header className={classNames('sub-name', {'name-active': true})}>
-        <Count name={'count'}/>
+        <Count name={'count'}>
+          <p>this is children.</p>
+        </Count>
         <Form/>
       </header>
     </div>
