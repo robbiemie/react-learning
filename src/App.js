@@ -4,12 +4,7 @@ import { useState } from "react";
 const Count = () => {
   const [count, setCount] = useState(0)
   function update() {
-    setTimeout(() => {
-      setCount(count + 1);
-    })
-    setTimeout(() => {
-      console.log(count)
-    })
+    setCount(count + 1);
   }
   return (
     <>
@@ -18,11 +13,25 @@ const Count = () => {
     </>
   )
 }
+
+// 受控表单
+const Form = () => {
+  const [value, setValue] = useState('')
+
+  function updateFormInput(e) {
+    setValue(e.target.value)
+  }
+
+  return (<div>
+    <input value={value} onChange={(e) => updateFormInput(e)}/>
+  </div>)
+}
 function App() {
   return (
     <div className="App">
       <header className={classNames('sub-name', {'name-active': true})}>
         <Count/>
+        <Form/>
       </header>
     </div>
   );
