@@ -106,8 +106,8 @@ const CustomHookCom = () => {
   </div>)
 }
 
-const FetchDataCom = () => {
-  
+// 封装自定义hook 请求数据
+const useFetchData = () => {
   const [list, setList] = useState([])
   
   useEffect(() => {
@@ -118,6 +118,20 @@ const FetchDataCom = () => {
     fetchData()
   }, [])
 
+  return {
+    list,
+    setList
+  }
+}
+
+// 数据请求
+const FetchDataCom = () => {
+  
+  const {
+    list,
+    setList
+  } = useFetchData()
+  
   return (<ul>
     {list.map(item => <li key={item.id}>{item.text}</li>)}
   </ul>)
