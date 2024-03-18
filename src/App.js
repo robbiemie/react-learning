@@ -106,6 +106,22 @@ const CustomHookCom = () => {
   </div>)
 }
 
+const FetchDataCom = () => {
+  
+  const [list, setList] = useState([])
+  
+  useEffect(() => {
+    async function fetchData() {
+      // const res = await fetch('https://localhost:8899/json')
+      setList([{id: 1, text: 'comment1'}]);
+    }
+    fetchData()
+  }, [])
+
+  return (<ul>
+    {list.map(item => <li key={item.id}>{item.text}</li>)}
+  </ul>)
+}
 
 function App() {
   const msg = 'this is msg text.'
@@ -124,6 +140,7 @@ function App() {
         {flag && <ClearEffect/>}
         <button onClick={() => setFlag(false)}>卸载</button>
         <CustomHookCom/>
+        <FetchDataCom/>
       </MsgContext.Provider>
     </div>
   );
