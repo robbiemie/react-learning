@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useState, useRef, createContext, useContext } from "react";
+import { useState, useRef, createContext, useContext, useEffect } from "react";
 
 // 创建一个 context
 const MsgContext = createContext();
@@ -45,10 +45,25 @@ const BCom = (props) => {
   </div>)
 }
 
+const UseEffectCom = () => {
+  const [value, setValue] = useState(0)
+  useEffect(() => {
+    // 1.初始化被调用
+    // 2.组件状态更新被调用
+    console.log('无依赖项 useEffect 被调用')
+  });
+
+  return (<div>
+    <p>{value}</p>
+    <button onClick={() => setValue(value + 1)}>+</button>
+  </div>)
+}
+
 function App() {
   const msg = 'this is msg text.'
   return (
     <div className="App">
+      {/* Provider 为所有子组件提供数据 */}
       <MsgContext.Provider value={msg}>
         <header className={classNames('sub-name', {'name-active': true})}>
           <Count name={'count'}>
@@ -56,6 +71,7 @@ function App() {
           </Count>
           <Form/>
         </header>
+        <UseEffectCom/>
       </MsgContext.Provider>
     </div>
   );
