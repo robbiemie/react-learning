@@ -1,5 +1,7 @@
 import classNames from "classnames";
 import { useState, useRef, createContext, useContext, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { increase, decrease } from "./store/modules/counter";
 
 // 创建一个 context
 const MsgContext = createContext();
@@ -128,13 +130,27 @@ const useFetchData = () => {
 const FetchDataCom = () => {
   
   const {
-    list,
-    setList
+    list
   } = useFetchData()
   
   return (<ul>
     {list.map(item => <li key={item.id}>{item.text}</li>)}
   </ul>)
+}
+
+// redux
+const ReduxCom = () => {
+  const {count} = useSelector(state => state.counter)
+  const dispatch = useDispatch()
+  return (<div>
+    <p>
+      redux: {count}
+    </p>
+    <div>
+      <button onClick={() => dispatch(increase())}>+</button>
+      <button onClick={() => dispatch(decrease())}>-</button>
+    </div>
+  </div>)
 }
 
 function App() {
@@ -155,6 +171,7 @@ function App() {
         <button onClick={() => setFlag(false)}>卸载</button>
         <CustomHookCom/>
         <FetchDataCom/>
+        <ReduxCom/>
       </MsgContext.Provider>
     </div>
   );

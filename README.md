@@ -131,3 +131,24 @@ const store = configureStore({
 
 export default store;
 ```
+
+## 使用 store
+
+![alt text](image-4.png)
+
+```js
+// 使用 useSelector 和 useDispatch
+const ReduxCom = () => {
+  const {count} = useSelector(state => state.counter)
+  const dispatch = useDispatch()
+  return (<div>
+    <p>
+      redux: {count}
+    </p>
+    <div>
+      <button onClick={() => dispatch(increase())}>+</button>
+      <button onClick={() => dispatch(decrease())}>-</button>
+    </div>
+  </div>)
+}
+```
