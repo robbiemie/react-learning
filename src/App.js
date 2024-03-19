@@ -154,10 +154,14 @@ const ReduxCom = () => {
     </div>
   </div>)
 }
+
 // 异步请求
 const AsyncReduxCom = () => {
   const {channels} = useSelector(state => state.channel)
   const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchChannelAction())
+  }, [dispatch])
   return (<div>
     <p>
       异步请求
@@ -166,7 +170,7 @@ const AsyncReduxCom = () => {
       <ul>
         { channels.map((item, index) => <li key={item.id + '' + index}>{item.name}</li>) }
       </ul>
-      <button onClick={() => dispatch(fetchChannelAction())}>+10</button>
+      <button onClick={() => dispatch(fetchChannelAction())}>额外请求</button>
     </div>
   </div>)
 }
