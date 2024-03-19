@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { useState, useRef, createContext, useContext, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { increase, decrease, addToNum } from "../../store/modules/counter";
-import { fetchChannelAction } from "../../store/modules/channel";
+import { fetchChannelAction } from "@/store/modules/channel";
 
 // 创建一个 context
 const MsgContext = createContext();
