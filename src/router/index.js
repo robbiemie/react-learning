@@ -30,6 +30,9 @@ const router = createBrowserRouter([
   {
     path: '/article/:id',
     element: <ArticlePage/>
+  }, {
+    path: '*',
+    element: <div>404</div>
   }
 ])
 
