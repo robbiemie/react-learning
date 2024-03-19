@@ -154,3 +154,7 @@ const ReduxCom = () => {
 ```
 
 ![alt text](image-5.png)
+
+## 使用异步 dispatch
+
+![alt text](image-6.png)

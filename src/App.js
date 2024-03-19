@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { useState, useRef, createContext, useContext, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { increase, decrease, addToNum } from "./store/modules/counter";
+import { fetchChannelAction } from "./store/modules/channel";
 
 // 创建一个 context
 const MsgContext = createContext();
@@ -153,7 +154,22 @@ const ReduxCom = () => {
     </div>
   </div>)
 }
-
+// 异步请求
+const AsyncReduxCom = () => {
+  const {channels} = useSelector(state => state.channel)
+  const dispatch = useDispatch()
+  return (<div>
+    <p>
+      异步请求
+    </p>
+    <div>
+      <ul>
+        { channels.map((item, index) => <li key={item.id + '' + index}>{item.name}</li>) }
+      </ul>
+      <button onClick={() => dispatch(fetchChannelAction())}>+10</button>
+    </div>
+  </div>)
+}
 function App() {
   const msg = 'this is msg text.'
   const [flag, setFlag] = useState(true);
@@ -173,6 +189,7 @@ function App() {
         <CustomHookCom/>
         <FetchDataCom/>
         <ReduxCom/>
+        <AsyncReduxCom/>
       </MsgContext.Provider>
     </div>
   );
