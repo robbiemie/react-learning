@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { useState, useRef, createContext, useContext, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { increase, decrease } from "./store/modules/counter";
+import { increase, decrease, addToNum } from "./store/modules/counter";
 
 // 创建一个 context
 const MsgContext = createContext();
@@ -149,6 +149,7 @@ const ReduxCom = () => {
     <div>
       <button onClick={() => dispatch(increase())}>+</button>
       <button onClick={() => dispatch(decrease())}>-</button>
+      <button onClick={() => dispatch(addToNum(10))}>+10</button>
     </div>
   </div>)
 }

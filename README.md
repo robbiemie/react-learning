@@ -152,3 +152,5 @@ const ReduxCom = () => {
   </div>)
 }
 ```
+
+![alt text](image-5.png)
