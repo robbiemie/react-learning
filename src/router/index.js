@@ -1,11 +1,13 @@
+import { lazy, Suspense } from 'react'
 import { createBrowserRouter } from "react-router-dom";
-import AppPage from '../page/app'
-import LoginPage from "../page/login";
-import ArticlePage from "../page/article";
-import LayoutPage from '../page/layout'
-import AboutPage from '../page/about'
-import BoardPage from '../page/board'
 
+import LoginPage from "@/page/login";
+import ArticlePage from "@/page/article";
+import LayoutPage from '@/page/layout'
+import AboutPage from '@/page/about'
+// 异步路由
+const BoardPage = lazy(() => import('@/page/board'));
+const AppPage = lazy(() => import('@/page/app'));
 
 const router = createBrowserRouter([
   {
@@ -21,7 +23,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/app',
-    element: <AppPage/>
+    element: <Suspense><AppPage/></Suspense>
   },
   {
     path: '/login',
