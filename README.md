@@ -82,6 +82,9 @@ const CustomHookCom = () => {
 
 ## useReducer
 
+
+![alt text](image-8.png)
+
 ```js
 // useReducer
 
@@ -113,8 +116,9 @@ const Board = () => {
 export default Board;
 ```
 
-![alt text](image-8.png)
 
+
+![alt text](image-9.png)
 ## redux
 
 ![alt text](image-2.png)
