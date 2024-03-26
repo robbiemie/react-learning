@@ -183,3 +183,7 @@ const router = createBrowserRouter([
   }
 ])
 ```
+
+## CDN优化
+
+![alt text](image-7.png)

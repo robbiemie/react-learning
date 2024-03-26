@@ -19,25 +19,18 @@
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
-
       Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <!-- js表达式写在<\%表达式\%> 渲染变量<\%=变量l\%> 这里的\是为了转义百分号防止webpack报错-->
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <% htmlWebpackPlugin.options.cdn.js.forEach(cdnUrl => { %>
+    <script type="text/javascript" src="<%= cdnUrl %>"></script>
+    <% }) %>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>您的浏览器不支持JavaScript 请开启JavaScript再浏览</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
