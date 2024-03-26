@@ -79,6 +79,11 @@ const CustomHookCom = () => {
 
 ```
 
+
+## useReducer
+
+![alt text](image-8.png)
+
 ## redux
 
 ![alt text](image-2.png)
