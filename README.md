@@ -170,11 +170,11 @@ const router = createBrowserRouter([
     path: '/',
     element: <LayoutPage/>,
     children: [{
-      index: true, // 默认子路由 index: true
+      path: '/about',
       element: <AboutPage/>
     }, {
       path: '/board',
-      element: <BoardPage/>
+      element: <Suspense fallback="loading... 请等待"><BoardPage/></Suspense>
     }]
   },
   {
