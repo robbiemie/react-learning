@@ -158,3 +158,28 @@ const ReduxCom = () => {
 ## 使用异步 dispatch
 
 ![alt text](image-6.png)
+
+## 异步组件
+
+```js
+const BoardPage = lazy(() => import('@/page/board'));
+const AppPage = lazy(() => import('@/page/app'));
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <LayoutPage/>,
+    children: [{
+      index: true, // 默认子路由 index: true
+      element: <AboutPage/>
+    }, {
+      path: '/board',
+      element: <BoardPage/>
+    }]
+  },
+  {
+    path: '/app',
+    element: <Suspense><AppPage/></Suspense>
+  }
+])
+```
