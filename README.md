@@ -194,6 +194,12 @@ tips: 可以配合使用 `useMemo`
 
 ![alt text](image-14.png)
 
+## useCallback
+
+作用: 组件多次重新渲染的时候，缓存函数
+
+![alt text](image-15.png)
+
 ## redux
 
 ![alt text](image-2.png)
