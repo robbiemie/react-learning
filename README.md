@@ -180,6 +180,8 @@ const Memo = () => {
 
 ```
 
+![alt text](image-12.png)
+
 ## redux
 
 ![alt text](image-2.png)
