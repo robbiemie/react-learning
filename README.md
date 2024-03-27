@@ -159,6 +159,27 @@ export default About;
 
 ![alt text](image-11.png)
 
+```js
+import { memo, useState } from "react"
+
+const Child = memo(() => {
+  console.log('子组件触发渲染')
+  return (<div>
+    <p>子组件</p>
+  </div>)
+})
+
+const Memo = () => {
+  const [count, setCount] = useState(0)
+  return (<div>
+    count: { count }<br/>
+    <button onClick={ () => setCount(count + 1)}>+1</button><br/>
+    <Child />
+  </div>)
+}
+
+```
+
 ## redux
 
 ![alt text](image-2.png)

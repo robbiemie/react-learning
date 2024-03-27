@@ -7,7 +7,7 @@ const Child = memo(() => {
   </div>)
 })
 
-const Board = () => {
+const Memo = () => {
   const [count, setCount] = useState(0)
   return (<div>
     count: { count }<br/>
@@ -16,4 +16,4 @@ const Board = () => {
   </div>)
 }
 
-export default Board;
+export default Memo;
