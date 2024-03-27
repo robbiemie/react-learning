@@ -182,6 +182,13 @@ const Memo = () => {
 
 ![alt text](image-12.png)
 
+ps: 
+
+- 如果 props 传入的是一个基础类型，props 变化时，子组件重新渲染
+- 如果 props 传入的时一个引用类型，props 比较的是新值和旧值的引用是否相等，使用 Object.is 比较；即当父组件重新执行，每次生成新的引用地址，子组件必定重新渲染
+
+![alt text](image-13.png)
+
 ## redux
 
 ![alt text](image-2.png)
