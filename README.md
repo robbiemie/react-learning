@@ -155,6 +155,8 @@ export default About;
 
 ## memo
 
+背景：父组件渲染，子组件会跟父组件一起发生渲染。
+
 ![alt text](image-11.png)
 
 ## redux

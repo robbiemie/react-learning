@@ -5,6 +5,7 @@ import LoginPage from "@/page/login";
 import ArticlePage from "@/page/article";
 import LayoutPage from '@/page/layout'
 import AboutPage from '@/page/about'
+import MemoPage from '@/page/memo'
 // 异步路由
 const BoardPage = lazy(() => import('@/page/board'));
 const AppPage = lazy(() => import('@/page/app'));
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <LoginPage/>
+  },
+  {
+    path: '/memo',
+    element: <MemoPage/>
   },
   {
     path: '/article/:id',
