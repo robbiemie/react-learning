@@ -153,6 +153,10 @@ const About = () => {
 export default About;
 ```
 
+## memo
+
+![alt text](image-11.png)
+
 ## redux
 
 ![alt text](image-2.png)
