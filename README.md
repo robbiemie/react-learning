@@ -189,6 +189,11 @@ ps:
 
 ![alt text](image-13.png)
 
+
+tips: 可以配合使用 `useMemo`
+
+![alt text](image-14.png)
+
 ## redux
 
 ![alt text](image-2.png)
