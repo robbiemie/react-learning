@@ -245,6 +245,10 @@ const Memo = () => {
 }
 ```
 
+## useImperativeHandle
+
+![alt text](image-17.png)
+
 ## redux
 
 ![alt text](image-2.png)
