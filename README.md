@@ -223,6 +223,28 @@ const Memo = () => {
 export default Memo;
 ```
 
+## forwardRef
+
+![alt text](image-16.png)
+
+```js
+import { forwardRef, useEffect, useRef } from "react"
+
+const ChildInput = forwardRef((props, ref) => {
+  return (<input type="text" ref={ref}/>)
+})
+
+const Memo = () => {
+  const inputRef = useRef(null)
+  useEffect(() => {
+    console.log(inputRef)
+  }, [inputRef])
+  return (<div>
+    <ChildInput ref={inputRef}/>
+  </div>)
+}
+```
+
 ## redux
 
 ![alt text](image-2.png)
