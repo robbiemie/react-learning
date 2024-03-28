@@ -366,6 +366,37 @@ const router = createBrowserRouter([
 ])
 ```
 
+## typescript
+
+
+useState 传递泛型
+
+![alt text](image-23.png)
+
+```ts
+type User = {
+  name: string
+  age: number
+}
+
+const [user, setUser] = useState<User | null>(null);
+```
+
+props
+
+![alt text](image-25.png)
+
+```ts
+type Props = {
+  className: string
+}
+
+const Button = (props:Props) => {
+  return (<button className={props.className}></button>)
+}
+```
+
+
 ## CDN优化
 
 ![alt text](image-7.png)
