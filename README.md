@@ -413,6 +413,35 @@ useEffect(() => {
 }, [])
 ```
 
+请求封装
+
+```ts
+// 1. 定义泛型
+type ResType<T> = {
+  message: string
+  data: T
+}
+
+// 2. 定义接口类型
+type ChannelItem = {
+  id: number
+  name: string
+}
+
+// 3. 定义payload
+type ChannelRes = {
+  channels: ChannelItem[]
+}
+
+function fetchData() {
+  return request<ResType<ChannelRes>>({
+    time: Date.now()
+  })
+}
+
+
+```
+
 ## CDN优化
 
 ![alt text](image-7.png)
