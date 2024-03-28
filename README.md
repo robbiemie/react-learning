@@ -249,6 +249,12 @@ const Memo = () => {
 
 ![alt text](image-17.png)
 
+## 类组件生命周期
+
+![alt text](image-18.png)
+
+![alt text](image-19.png)
+
 ## redux
 
 ![alt text](image-2.png)
