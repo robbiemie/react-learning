@@ -396,6 +396,22 @@ const Button = (props:Props) => {
 }
 ```
 
+useRef
+
+![alt text](image-26.png)
+
+```ts
+const timerRef = useRef<number | undefined>(undefined)
+
+useEffect(() => {
+  timerRef.current = setTimeout(() => {
+    console.log('time out')
+  }, 500);
+  return () => {
+    clearTimeout(timerRef.current);
+  }
+}, [])
+```
 
 ## CDN优化
 
