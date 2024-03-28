@@ -335,6 +335,12 @@ const ReduxCom = () => {
 
 ![alt text](image-6.png)
 
+## 使用 zustand 状态管理
+
+![alt text](image-20.png)
+
+![alt text](image-21.png)
+
 ## 异步组件
 
 ```js
